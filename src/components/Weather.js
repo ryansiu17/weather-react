@@ -3,7 +3,7 @@ import React from "react";
 
 const Weather = props => {
   return (
-    <div>
+    <div class="animated fadeIn" className="data">
       {props.city &&
         props.country && (
           <p>

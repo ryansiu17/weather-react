@@ -1,7 +1,7 @@
 import React from "react";
 
 const Titles = () => (
-  <div>
+  <div className="titleText">
     <h1>Weather Finder</h1>
     <p>Find out about lots of things!</p>
   </div>

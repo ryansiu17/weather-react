@@ -2,7 +2,7 @@ import React from "react";
 import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
-import styles from "./App.module.scss";
+import "./App.scss";
 const API_KEY = "3100f7a8fa3793178caf3c266d4f8dde";
 //state is an object that lives within a component and is reponsible for keeping track of changing data within a component. (User clicking buton or submitting form, an interaction)
 
@@ -53,22 +53,20 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div className={styles.main}>
-        <div className={styles.body}>
-          <Titles className={styles.title} />
-          <div className={styles.data}>
-            <Form getWeather={this.getWeather} className={styles.form} />
-            {/*the first getWeather is a prop name, it could be anything. The 'this' is App, and it is passing the function getWeather to form */}
-            <Weather
-              class="weather"
-              temperature={this.state.temperature}
-              city={this.state.city}
-              country={this.state.country}
-              humidity={this.state.humidity}
-              description={this.state.humidity}
-              error={this.state.error}
-            />
+      <div className="main">
+        <div className="block1">
+          <div className="text1">
+            <Titles className="title" />
+            <Form getWeather={this.getWeather} />
           </div>
+          <Weather
+            temperature={this.state.temperature}
+            city={this.state.city}
+            country={this.state.country}
+            humidity={this.state.humidity}
+            description={this.state.humidity}
+            error={this.state.error}
+          />
         </div>
       </div>
     );
