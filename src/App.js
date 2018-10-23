@@ -16,9 +16,11 @@ class App extends React.Component {
     description: undefined,
     error: undefined
   };
+
   getWeather = async e => {
     //e is event call in js
     e.preventDefault();
+
     //const city takes the name of the input tag we have in form
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
@@ -29,7 +31,6 @@ class App extends React.Component {
     //converting data from API to readable format (JSON)
     const data = await api_call.json();
     console.log(data);
-
     //Checks for if country and city have been returned by the API and only then sets state
     city && country //setting state to data through setState, rather than directly setting state. (this.state.temp = ... <- BAD)
       ? this.setState({
@@ -56,7 +57,7 @@ class App extends React.Component {
       <div className="main">
         <div className="block1">
           <div className="text1">
-            <Titles className="title" />
+            <Titles />
             <Form getWeather={this.getWeather} />
           </div>
           <Weather
@@ -64,7 +65,7 @@ class App extends React.Component {
             city={this.state.city}
             country={this.state.country}
             humidity={this.state.humidity}
-            description={this.state.humidity}
+            description={this.state.description}
             error={this.state.error}
           />
         </div>
